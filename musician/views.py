@@ -10,7 +10,7 @@ def musician(request):
             Musician.save()
             print(Musician.cleaned_data)
             return redirect("homepage")
-    return render(request,'musician.html',{"Form":MusicianForm})
+    return render(request,'musician.html',{"Form":MusicianForm,"Title":"Add Musician"})
 
 def EditMusician(request,id):
     MusicianObject = MusicianModel.objects.get(pk=id)
@@ -23,4 +23,4 @@ def EditMusician(request,id):
             return redirect('homepage')
     else:
         EditMusicianForm = MusicianForm(instance=MusicianObject)
-    return render(request,'musician.html',{"Form":EditMusicianForm})
+    return render(request,'musician.html',{"Form":EditMusicianForm,"Title":"Edit Musician"})

@@ -15,7 +15,7 @@ def Album(request):
             return redirect("homepage")
     else:
         Album = AlbumForm()
-    return render(request,'album.html',{"Form":AlbumForm})
+    return render(request,'album.html',{"Form":AlbumForm,"Title":"Add Album"})
 
 
 
@@ -30,7 +30,7 @@ def Edit(request,id):
             return redirect("homepage")
     else:
         EditAlbum=AlbumForm(instance=AlbumObjects)
-    return render(request,'album.html',{"Form":EditAlbum})
+    return render(request,'album.html',{"Form":EditAlbum,"Title":"Edit Album"})
 
 def DeleteAlbum(request,id):
     AlbumObjects = AlbumModel.objects.get(pk=id)
